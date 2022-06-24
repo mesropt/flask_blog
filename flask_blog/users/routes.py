@@ -18,8 +18,7 @@ def register():
         user = User(username=form.username.data, email=form.email.data, password=hashed_password) # Через ORM (через модель  User) создаём объект этой модели user.
         db.session.add(user) # Через сессию отправляем данные в БД.
         db.session.commit() # Затем подтверждаем отправку.
-        flash('Ваша учётная запись была создана!'
-              'Теперь вы можете войти в систему', 'success')
+        flash('Ваша учётная запись была создана! Теперь вы можете войти в систему', 'success')
         return redirect(url_for('users.login'))
     return render_template('register.html', title='Register', form=form) # Рендерим шаблон и передаём в него контекст - title и form.
 
